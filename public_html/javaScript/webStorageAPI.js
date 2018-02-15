@@ -7,6 +7,7 @@
 function doFirst(){
     var button = document.getElementById("button");
     button.addEventListener("click",saveStuff,false);
+    display()
 }
 
 function saveStuff(){
@@ -18,13 +19,26 @@ function saveStuff(){
     //the value of the key.
     sessionStorage.setItem(one,two);
     
-    display(one);
+    display();
+    
+    //reset the text box values to nothing once the items have been saved
+    document.getElementById("one").value = "";
+    document.getElementById("two").value= "";
 }
 
-function display(one){
+function display(){
     var rightBox = document.getElementById("rightbox");
-    var two = sessionStorage.getItem(one);
-    rightBox.innerHTML = "Name of variable: "+one+"<br /> Value: "+two;
+    
+    //clears the right box
+    rightBox.innerHTML = "";
+    
+    for(var x = 0;x<sessionStorage.length; x++){
+        var a = sessionStorage.key(x);
+        var b = sessionStorage.getItem(a);
+        rightBox.innerHTML += "Name of variable: "+a+"---Value: "+b+"<br />";
+    }
+    
+    
 }
 
 window.addEventListener("load",doFirst,false);
