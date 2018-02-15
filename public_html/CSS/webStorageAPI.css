@@ -8,3 +8,17 @@ and open the template in the editor.
     Author     : lVl4rl2LoN
 */
 
+#leftbox{
+    float: left;
+    padding: 20px;
+    border: 3px solid red;
+    
+}
+
+#rightbox{
+    float: left;
+    width:250px;
+    margin-left: 20px;
+    padding: 20px;
+    border: 3px solid blue;
+}
